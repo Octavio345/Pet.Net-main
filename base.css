@@ -1,0 +1,335 @@
+/* 
+    Código exemplo : https://blog.logrocket.com/create-responsive-mobile-menu-css-without-javascript/
+
+*/
+
+/* Tema *//* import font */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"); 
+
+
+/* Setando as cores utilizadas no Projeto */
+:root{
+    --white: #f9f9f9;
+    --black: #36383F;
+    --gray: #85888C;
+} 
+/* variables*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Header */
+.header {
+    background-color: #4b779d;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+    height: 80px; /* Altura do header */
+    position: relative;
+}
+
+/* Nav menu */
+.nav{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: var(--black);
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height .5s ease-out;
+    font-size: 20px;
+}
+
+#link_telefone img {
+    width: 25px;
+    float: right;
+    margin-top: 7px;
+    margin-right: 7px;
+}
+
+#link_telefone {
+    background-color: #f29e38;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    float: right;
+    margin-top: 22px;
+}
+
+a{
+    text-decoration: none;
+}
+
+ul{
+    list-style: none;
+}
+
+.menu a{
+    display: block;
+    padding: 30px;
+    color: var(--white);
+}
+
+.menu a:hover{
+    background-color: var(--gray);
+}
+
+/**** Icone do Menu Hamburguer*****/
+
+/*Estilizando a Tag Label */
+.hamb{
+    cursor: pointer;
+    float: right;
+    padding: 40px 20px;
+}
+
+/* Estilizando a Tag Span */
+.hamb-line {
+    background: white;
+    display: block;
+    height: 2px;
+    position: relative;
+    width: 24px;
+} 
+
+.hamb-line::before,
+.hamb-line::after{
+    background: white;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
+}
+.hamb-line::before{
+    top: 5px;
+}
+.hamb-line::after{
+    top: -5px;
+}
+
+/* Escondendo o input checkbox */
+.side-menu {
+    display: none;
+} 
+
+/* Alternar ícone do menu */
+.side-menu:checked ~ nav{
+    max-height: 100%;
+}
+.side-menu:checked ~ .hamb .hamb-line {
+    background: transparent;
+}
+.side-menu:checked ~ .hamb .hamb-line::before {
+    transform: rotate(-45deg);
+    top:0;
+}
+.side-menu:checked ~ .hamb .hamb-line::after {
+    transform: rotate(45deg);
+    top:0;
+}
+
+body:has(.side-menu:checked) {
+  overflow: hidden;
+}
+
+#img_logo {
+    width: 80px;
+    padding-left: 20px;
+    padding-top: 10px;
+}
+
+#img_destaque {
+    width: 100%;
+    margin-top: -2px;
+}
+
+#botao_agendar {
+    background-color: #295377;
+    width: 150px;
+    height: 60px;
+    border-radius: 30px;
+    margin-top: -80px;
+    margin-left: 30px;
+    position: absolute;
+    color: white;
+    line-height: 5px;
+}
+
+#agendar{
+    margin-left: 45px;
+    margin-top: -14px;
+}
+
+#botao_agendar img {
+    width: 30px;
+    padding-top: 10px;
+    margin-left: 12px;
+    margin-top: 2px;
+}
+
+body {
+    background-color: #eceaea;
+    font-family: sans-serif;
+    font-size: 23px;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+}
+
+#img_destaque {
+    width: 100%;
+}
+
+.progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0;
+    background: #4caf50;
+    transition: width 0.2s ease;
+}
+
+.content {
+    padding: 20px;
+}
+
+.trilho {
+    width: 60px;
+    height: 35px;
+    background-color: #c3c3c3;
+    border-radius: 150px;
+    position: relative;
+    margin-top: 10px;
+    margin-left: 30px;
+}
+
+nav p {
+    margin-top: 10px;
+    margin-left: 30px;
+    color: #f29e38;
+}
+
+.trilho .indicador {
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    border-radius: 50%;
+    transform: scale(.9);
+    margin-top: 2px;
+    cursor: pointer;
+    position: absolute;
+    left: 0;
+    transition: .5s;
+}
+
+.trilho.dark .indicador {
+    left: 30px;
+    background-color: #000;
+}
+
+.trilho.dark {
+    background-color: #4d4d4d;
+}
+
+body {
+    transition: .5s;
+}
+
+body.dark {
+    background-color: #3e4451;
+    color: white;
+}
+
+.texto.dark {
+    color: white;
+}
+
+.carousel__slide {
+    position: relative;
+    flex: 0 0 100%; /* Ajusta a largura do slide */
+    width: 100%;
+    background-color: #CFCFCF;
+    counter-increment: item;
+    border-radius: 15px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.carousel__slide.dark {
+   background-color: #484d57; /* Altera a cor de fundo quando a classe 'dark' é adicionada */
+}
+
+.carousel__slide:nth-child(even).dark {
+    background-color: #484d57;
+}
+
+#img_destaque {
+    width: 100%;
+    height: auto; /* Ajusta automaticamente a altura */
+}
+
+.dark #img_destaque {
+    content: url('imagens/img_destaque_dark.png'); /* Troca a imagem no modo escuro */
+}
+
+@media (max-width: 350px) {
+
+    #divBusca {
+        background-color: #E0EEEE;
+        border: solid 2px #5F9EA0;
+        border-radius: 10px;
+        width: 160px;
+        height: 30px;
+        margin-top: -50px;
+        margin-left: 95px;
+        display: flex;
+        align-items: center; /* Centraliza verticalmente */
+    }
+
+    #txtBusca {
+        background-color: transparent;
+        margin: -20px;
+        font-size: 18px;
+        border: none;
+        height: 100%; /* Ajusta a altura para que se ajuste ao contêiner */
+        width: 100%; /* Ajusta a largura para preencher o espaço restante */
+        box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura total */
+    }
+}
+
+
+@media(min-width: 1000px) and (max-width: 1400px)  {
+
+    .nav{
+        max-height: none;
+        top: 0;
+        position: relative;
+        float: right;
+        width: fit-content;
+        background-color: transparent;
+    }
+    .menu li{
+        float: left;
+    }
+    .menu a:hover{
+        background-color: transparent;
+        color: var(--gray);
+    }
+
+    .hamb{
+        display: none;
+    }
+}

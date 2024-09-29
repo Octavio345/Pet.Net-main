@@ -1,0 +1,420 @@
+.nav {
+    z-index: 1;
+}
+
+.animate {
+    position: relative;
+    opacity: 0; /* Começa invisível */
+    transform: translateX(-100%); /* Começa à esquerda */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Animação suave */
+}
+
+.animate.visible {
+    opacity: 1; /* Fica visível */
+    transform: translateX(0); /* Move para o centro */
+}
+
+.titulo {
+    color: #f29e38;
+    src: url(Odin\ Rounded\ -\ Bold.otf);
+    font-size: 30px;
+    padding-left: 30px;
+    padding-top: 20px;
+}
+
+.texto {
+    padding-left: 30px;
+    padding-right: 30px;
+    text-align: left;
+    margin-top: 20px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #000000;
+    font-size: 22px;
+}
+
+#foto_gradiente {
+    text-align: center;
+}
+
+#ajustar_foto_gradiente {
+    margin-top: -250px;
+    text-align: center;
+}
+
+#ajustar_foto_raiox {
+    padding-left: 30px;
+}
+
+#ajustar_foto_banho {
+    padding-left: 40px;
+}
+
+.img_locais {
+    width: 100%;
+    padding: 10px;
+    height: auto;
+    border-radius: 30px;
+    margin-top: 30px;
+}
+
+#duas_colunas {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+}
+
+.nosso_diferencial {
+    background-color: #7eb3e2;
+    margin: 50px auto;
+    width: 300px;
+    height: 80px;
+    text-align: center; 
+    display: flex; 
+    align-items: center;
+    justify-content: center; 
+    border-radius: 20px; 
+    color: purple;
+    font-weight: 600;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+#subir_diferencial {
+    margin-top: -100px;
+}
+
+#links_uteis {
+    padding-left: 50px;
+    padding-top: 30px;
+    color: #fd9f2b;
+    font-weight: 100;
+}
+
+.links a {
+    text-decoration: none;
+    color: #f0b56c;
+    padding: 20px;
+}
+
+.links {
+    padding-left: 30px;
+    padding-top: 20px;
+}
+
+hr {
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+
+#feedback {
+    color: #f29e38;
+    font-size: 25px;
+    text-align: center;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+* {
+    box-sizing: border-box;
+    scrollbar-color: transparent transparent; /* thumb and track color */
+    scrollbar-width: 0px;
+}
+
+*::-webkit-scrollbar {
+    width: 0;
+}
+
+*::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: transparent;
+    border: none;
+}
+
+* {
+    -ms-overflow-style: none;
+}
+
+ol, li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.carousel {
+    position: relative;
+    padding-top: 75%;
+    filter: drop-shadow(0 0 10px #0003);
+    perspective: 1000px; /* Aumentado para mais profundidade */
+    width: 300px;
+    margin: 40px auto;
+}
+
+.carousel__viewport {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    overflow-x: scroll;
+    counter-reset: item;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+}
+
+.carousel__slide:nth-child(even) {
+    background-color: #CFCFCF;
+}
+
+.carousel {
+    border-radius: 20px;
+}
+
+.carousel__slide:before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -40%, 70px);
+    font-size: 2em;
+}
+
+.carousel__snapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    scroll-snap-align: center;
+}
+
+.carousel__snapper img {
+    width: 25px;
+    padding-left: 10px;
+}
+
+.carousel__snapper #logo {
+    width: 130px;
+    padding-left: 90px;
+}
+
+/* Ocultar a barra de rolagem */
+.carousel__viewport::-webkit-scrollbar {
+    display: none;
+}
+
+.texto_feedback {
+    padding-left: 20px;
+    padding-right: 10px;
+    padding-top: 20px;
+    text-align: justify;
+}
+
+@media (hover: hover) {
+    .carousel__snapper {
+        animation-name: tonext, snap;
+        animation-timing-function: ease;
+        animation-duration: 4s;
+        animation-iteration-count: infinite;
+    }
+
+    .carousel__slide:last-child .carousel__snapper {
+        animation-name: tostart, snap;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .carousel__snapper {
+        animation-name: none;
+    }
+}
+
+.carousel:hover .carousel__snapper,
+.carousel:focus-within .carousel__snapper {
+    animation-name: none;
+}
+
+.carousel__navigation {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+}
+
+.carousel__navigation-list,
+.carousel__navigation-item {
+    display: inline-block;
+}
+
+.carousel__navigation-button {
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: #333;
+    background-clip: content-box;
+    border: 0.25rem solid transparent;
+    border-radius: 50%;
+    font-size: 0;
+    transition: transform 0.1s;
+}
+
+.carousel::before,
+.carousel::after,
+.carousel__prev,
+.carousel__next {
+    position: absolute;
+    top: 0;
+    margin-top: 37.5%;
+    width: 3rem; /* Ajuste a largura dos botões de navegação conforme necessário */
+    height: 3rem; /* Ajuste a altura dos botões de navegação conforme necessário */
+    transform: translateY(-50%);
+    border-radius: 50%;
+    font-size: 0;
+    outline: 0;
+}
+
+.carousel::before,
+.carousel__prev {
+    left: -1rem;
+}
+
+.carousel::after,
+.carousel__next {
+    right: -1rem;
+}
+
+.nome_da_pessoa_no_feedback {
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.img_feedback {
+    width: 25px;
+    padding-left: 5px;
+    margin-top: -50px;
+}
+
+.data_feedback, .data_feedback_outros, .data_feedback_outros_2 {
+    font-size: 18px;
+    margin-left: 20px;
+    margin-top: 40px; /* ajuste padrão para todos */
+}
+
+
+#logo {
+    width: 40px;
+    float: right;
+    padding-right: 10px;
+    margin-top: -30px;
+}
+
+#botao_voltar_para_cima {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 999;
+    background-color: #f0b56c;
+    border-radius: 50%; /* Melhorar o arredondamento */
+    width: 55px; /* Definir largura e altura para garantir o círculo perfeito */
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centraliza o conteúdo */
+    box-shadow: 0px 10px 6px rgba(0, 0, 0, 0.1); /* Adiciona um sombreamento */
+}
+
+#botao_voltar_para_cima img {
+    width: 100%; /* Proporcional ao tamanho do botão */
+    height: auto; /* Mantém a proporção da imagem */
+    border-radius: 50%; /* Garante que a imagem também seja circular */
+}
+
+#logo_do_footer img {
+    width: 130px;
+    padding-top: 20px;
+    padding-left: 50px;
+}
+
+#foto_gradiente img {
+    text-align: center;
+    width: 350px;
+}
+
+#ajustar_foto_gradiente {
+    margin-top: -200px;
+}
+
+#ajustar_foto_raiox {
+    margin-left: -30px;
+    margin-top: -100px;
+}
+
+#ajustar_foto_banho {
+    margin-left: -40px;
+    border-radius: 30px;
+    margin-top: -50px;
+}
+
+.content {
+    padding: 20px;
+}
+
+footer {
+    background-color: #295377;
+    height: 370px;
+    font-size: 17px;
+    margin-left: -20px;
+}
+
+@media (max-width: 350px) {
+
+    #divBusca {
+        background-color: #E0EEEE;
+        border: solid 2px #5F9EA0;
+        border-radius: 10px;
+        width: 160px;
+        height: 32px;
+        margin-top: -50px;
+        margin-left: 95px;
+        display: flex;
+        align-items: center; /* Centraliza verticalmente */
+    }
+
+    #txtBusca {
+        background-color: transparent;
+        margin: -20px;
+        font-size: 18px;
+        border: none;
+        height: 100%; /* Ajusta a altura para que se ajuste ao contêiner */
+        width: 100%; /* Ajusta a largura para preencher o espaço restante */
+        box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura total */
+    }
+
+    #foto_gradiente img {
+        width: 100%; 
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 30px;
+    }
+
+    #ajustar_foto_raiox {
+        margin-top: -140px;
+    }
+
+    .carousel {
+        position: relative;
+        padding-top: 75%;
+        filter: drop-shadow(0 0 10px #0003);
+        perspective: 100px;
+        margin: 40px auto;
+        height: 300px;
+    }
+    
+    footer {
+        font-size: 15px;
+        margin-left: -30px;
+        height: 300px;
+    }
+}
